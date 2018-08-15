@@ -1,4 +1,8 @@
 MODULE Day04;
+(*
+  Day #4: nothing special here...
+  Input is processed one line at a time from floppy file...
+*)
 IMPORT Strings,Texts;
 CONST N=512;
 VAR line : Strings.String;
@@ -25,7 +29,7 @@ BEGIN
 END areAnagrams;
 
 BEGIN
-  IF NOT Texts.OpenText(input,"DAY04.TXT") THEN RAISE FileNotFound,"DAY04.TXT" END;
+  IF NOT Texts.OpenText(input,"DAY04.IN") THEN RAISE FileNotFound END;
   valids1 := 0; valids2 := 0;
   FOR n:=1 TO N DO
     words:=0;

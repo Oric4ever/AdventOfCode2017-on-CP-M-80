@@ -1,4 +1,7 @@
 MODULE Day19;
+(*
+  Day #19: Luckily enough, the 40 KB map fits into memory...
+*)
 IMPORT Texts,Strings;
 CONST Size = 201;
 VAR map : ARRAY [1..Size] OF ARRAY [0..Size] OF CHAR;
@@ -11,7 +14,7 @@ VAR map : ARRAY [1..Size] OF ARRAY [0..Size] OF CHAR;
 
 EXCEPTION FileNotFound;
 BEGIN
-  IF NOT Texts.OpenText(input,"DAY19.TXT") THEN RAISE FileNotFound,"DAY19.TXT" END;
+  IF NOT Texts.OpenText(input,"DAY19.IN") THEN RAISE FileNotFound END;
   FOR i:=1 TO Size DO Texts.ReadLine(input,map[i]) END;
   Texts.CloseText(input);
 
@@ -37,3 +40,4 @@ BEGIN
   WRITELN('Path : ',path);
   WRITELN('Steps : ',steps);
 END Day19.
+

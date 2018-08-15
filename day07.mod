@@ -1,7 +1,12 @@
 MODULE Day07;
+(*
+  Day #7: nice tree search...
+  - had to carefully adjust the record size so that the input just fits in memory!!!
+  - reading the input in two passes because of forward references
+*)
 IMPORT Texts,Strings;
 CONST N=1098;
-TYPE Cell = RECORD
+TYPE Cell = RECORD (* 28 bytes *)
               name : ARRAY [0..7] OF CHAR;
               weight : LONGINT;
               nbSons : CARDINAL;
@@ -74,18 +79,18 @@ VAR n, length, nbSons : CARDINAL;
     name : ARRAY [0..7] OF CHAR;
 EXCEPTION FileNotFound;
 BEGIN
-  IF NOT Texts.OpenText(input,"DAY07.TXT") THEN RAISE FileNotFound,"DAY07.TXT" END;
+  IF NOT Texts.OpenText(input,"DAY07.IN") THEN RAISE FileNotFound END;
   FOR n:=1 TO N DO
     Texts.ReadString(input,cells[n].name);
     Texts.ReadLn(input);
   END;
   Texts.CloseText(input);
 
-  IF NOT Texts.OpenText(input,"DAY07.TXT") THEN RAISE FileNotFound,"DAY07.TXT" END;
+  IF NOT Texts.OpenText(input,"DAY07.IN") THEN RAISE FileNotFound END;
   FOR n:=1 TO N DO
     Texts.ReadString(input,name);
     Texts.ReadChar(input,dummy);  (* left parenthesis *)
-    Texts.ReadLong(input,cells[n].weight); (* ReadLong reads right parenthesis and even next chars! *)
+    Texts.ReadLong(input,cells[n].weight); (* ReadLong reads until the next whitespace! *)
     nbSons := 0;
     IF NOT Texts.EOLN(input) THEN
       Texts.ReadString(input,name); (* '->' *)

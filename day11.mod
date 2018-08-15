@@ -1,4 +1,7 @@
 MODULE Day11;
+(* 
+  Day #11: nothing special here...
+*)
 IMPORT Texts;
 EXCEPTION FileNotFound;
 VAR input : Texts.TEXT;
@@ -7,7 +10,7 @@ VAR input : Texts.TEXT;
     dir : ARRAY [0..2] OF CHAR;
 BEGIN
   x := 0; y := 0; furthest := 0;
-  IF NOT Texts.OpenText(input,"DAY11.TXT") THEN RAISE FileNotFound,"DAY11.TXT" END;
+  IF NOT Texts.OpenText(input,"DAY11.IN") THEN RAISE FileNotFound END;
   REPEAT
     Texts.ReadString(input,dir);
 

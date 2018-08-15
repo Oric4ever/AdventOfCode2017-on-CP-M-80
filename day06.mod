@@ -1,4 +1,14 @@
 MODULE Day06;
+(*
+  Day #6: this one is interesting...
+  On PC I was using a large array to memorize past configurations, 
+  in order to first find the number of configurations before cycling starts,
+  and then periodicity of the redistribution process.
+  Here I don't have such a big memory, so I first determined the
+  periodicity of the cycle after the initial redistributions, and
+  then the number of redistributions in a cycle... 
+  ... all this with only 3 configurations.
+*)
 IMPORT Texts;
 EXCEPTION FileNotFound;
 CONST N=16;
@@ -34,7 +44,7 @@ BEGIN
 END Equal;
 
 BEGIN
-  IF NOT Texts.OpenText(input,"DAY06.TXT") THEN RAISE FileNotFound,"DAY06.TXT" END;
+  IF NOT Texts.OpenText(input,"DAY06.IN") THEN RAISE FileNotFound END;
   FOR i:=1 TO N DO Texts.ReadCard(input,initial[i]) END;
   Texts.CloseText(input);
 

@@ -1,4 +1,9 @@
 MODULE Day03;
+(*
+   Day #3:
+   - for part #1, avoided to store the spiral in memory...
+   - for part #2, Modula-2 helps with its array index ranges... 
+*)
 CONST target = 368078L;
       size = 10;
 VAR x, y, dx, dy, limit : INTEGER;

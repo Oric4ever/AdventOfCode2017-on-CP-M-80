@@ -1,4 +1,34 @@
 MODULE Day18;
+(*
+  Day #18: another most loved day...
+  Modula-2 shines here: coroutines are part of the language definition,
+  and Turbo Modula-2's Processes module defines Signals for co-routines synchronization.
+  So I wrote a small Queues module to implement FIFO communication queues, and  
+  the implementation becomes very elegant IMHO.
+
+  (* well, except the fact I had to resort to double-precision floating point
+  because the computations require bigger than 32-bit integer values. And I also
+  would have liked a cleaner way to give the process id to the processes... *)
+
+  Here is how the two processes cooperate to deliver the expected results:
+  - the main process starts a new process (with process id #0), which will do its
+  computations (including sending a number of values to a communication queue).
+  As no other process is waiting for the communication queue, this process with id #0
+  will continue to run...
+  - ... until it reaches a first 'receive' instruction: process #0 will now be blocked,
+  waiting for its receiving FIFO queue. So the first process (main process) will resume
+  execution now. We can write the answer for part #1 now. 
+  - Now this main process will start to run the same code, but with process id #1. 
+  So, process #1 runs code and can extract values from the FIFO queue filled by process #0.
+  But as soon as process #1 sends a value to the queue process #0 is waiting for, process #0
+  resumes execution (and process #1 is suspended)...
+  - both processes continue to exchange values this way: a process will continue execution
+  until it either sends a value to a queue the other process is waiting for, or until it
+  tries to extract a value from an empty queue.
+  - finally, when both processes are waiting for the other's queue, then a Deadlock is
+  detected, and the exception handler write the answer for part #2
+*)
+
 FROM SYSTEM IMPORT TSIZE;
 IMPORT Texts,Strings,Processes,Queues;
 
@@ -94,7 +124,7 @@ END run;
 
 
 BEGIN
-  parsefile('DAY18.TXT');
+  parsefile('DAY18.IN');
 
   queue[0] := Queues.New(QSIZE,TSIZE(Number));
   queue[1] := Queues.New(QSIZE,TSIZE(Number));

@@ -1,4 +1,8 @@
 MODULE Day25;
+(*
+  Day #25: cheated a little by transforming the input Turing machine
+  to a Modula-2 program...
+*)
 CONST STEPS = 12173597L;
       Size = 10000;
 TYPE STATE = (A,B,C,D,E,F);

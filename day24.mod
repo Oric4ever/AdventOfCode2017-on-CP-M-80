@@ -1,4 +1,10 @@
 MODULE Day24;
+(*
+  Day #24: the commented recursive definition was way too slow, due to
+  the cost of function invocation.
+  So I transformed the implementation into an iterative definition,
+  which is not so common (nor natural) when it comes to exploring a tree...
+*)
 IMPORT Texts,Strings,Convert;
 CONST N = 57;
 TYPE Domino = RECORD a,b : CARDINAL END;
@@ -70,7 +76,7 @@ VAR input : Texts.TEXT;
     line, str : Strings.String;
     res : BOOLEAN;
 BEGIN
-  IF NOT Texts.OpenText(input,"DAY24.TXT") THEN RAISE FileNotFound END;
+  IF NOT Texts.OpenText(input,"DAY24.IN") THEN RAISE FileNotFound END;
   FOR i:=1 TO N DO
     WITH domino[i] DO
       Texts.ReadLine(input,line);

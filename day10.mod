@@ -1,4 +1,7 @@
 MODULE Day10;
+(*
+  Day #10: wrote a KnotHash module in order to reuse it in Day #14
+*)
 IMPORT KnotHash, Strings;
 
 VAR hash : KnotHash.HASH;

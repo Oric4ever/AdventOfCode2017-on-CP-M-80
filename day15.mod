@@ -1,4 +1,10 @@
 MODULE Day15;
+(*
+  Day #15: most hated day...
+  The simulation is so simple to run, but so slow on a poor 8-bit processor...
+  And to add more to it, I had to ressort to double precision floating point since 32-bits 
+  integers aren't big enough...
+*)
 CONST MAXLONG = 2147483647.0D0;
 
 VAR seedA : LONGINT;

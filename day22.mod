@@ -1,4 +1,15 @@
 MODULE Day22;
+(*
+  Day #22: the memory constraint drives the implementation here...
+  For part #2, the propagation of the infection populates a ~400x400 map of 4 states,
+  i.e. 400*400*2 = 320000 bits = 40 KB.
+  So, BITSETs are mandatory...
+  Unfortunately, a 2D bitmap structure was slow, due to the lack of hardware multiplication
+  on the Z80, so I had to linearize the bitmap, and transform the code to low-level code
+  as much as possible... As a result, part #2 is not as readable as I would have liked.
+  Note also that the order of variable declarations in part #2 is important as the first ones
+  will be memorized in registers... 
+*)
 IMPORT Texts;
 CONST N = 25;
       Lines = 400; Columns = 400;
@@ -18,7 +29,7 @@ VAR input : Texts.TEXT;
 BEGIN
   FOR i:=0 TO Size-1 DO map[i] := BITSET{}; map2[i] := BITSET{};  END;
 
-  IF NOT Texts.OpenText(input,"DAY22.TXT") THEN RAISE FileNotFound END;
+  IF NOT Texts.OpenText(input,"DAY22.IN") THEN RAISE FileNotFound END;
   FOR j := N-1 TO 0 BY -1 DO
     FOR i := 0 TO N-1 DO
       x := i + Columns DIV 2;

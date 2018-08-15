@@ -1,4 +1,7 @@
 MODULE Day2;
+(*
+   Day #2, nothing special here...
+*)
 IMPORT Texts;
 
 CONST size = 16;
@@ -8,7 +11,7 @@ VAR calc: ARRAY [1..16] OF ARRAY [1..16] OF CARDINAL;
 EXCEPTION FileNotFound;
 
 BEGIN
-  IF NOT Texts.OpenText(file,"DAY02.TXT") THEN RAISE FileNotFound,"DAY02.TXT" END;
+  IF NOT Texts.OpenText(file,"DAY02.IN") THEN RAISE FileNotFound END;
   FOR row:=1 TO size DO
     FOR col:=1 TO size DO
       Texts.ReadCard(file,calc[row][col]);

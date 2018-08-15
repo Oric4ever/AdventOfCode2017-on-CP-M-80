@@ -1,4 +1,8 @@
 MODULE Day14;
+(*
+  Day #14: follow-up of Day #10
+  - should rewrite the manual conversion by using the Converts module
+*)
 IMPORT KnotHash, Strings;
 
 VAR key : Strings.String;

@@ -1,7 +1,11 @@
 MODULE Day12;
+(*
+  Day #12: not very clean, I mapped fixed-size arrays to variable-size allocated storage
+  in order to optimize the memory (it wouldn't fit otherwise)...
+*)
 IMPORT Texts;
 FROM SYSTEM IMPORT ADDRESS,TSIZE;
-FROM STORAGE IMPORT ALLOCATE,FREEMEM;
+FROM STORAGE IMPORT ALLOCATE;
 CONST N = 2000;
 TYPE Connections = ARRAY [0..9] OF CARDINAL;
 VAR table : ARRAY [0..N-1] OF POINTER TO Connections;
@@ -25,7 +29,7 @@ END Mark;
 
 EXCEPTION FileNotFound,ArrayTooSmall;
 BEGIN
-  IF NOT Texts.OpenText(input,"DAY12.TXT") THEN RAISE FileNotFound, "DAY12.TXT" END;
+  IF NOT Texts.OpenText(input,"DAY12.IN") THEN RAISE FileNotFound END;
   FOR i:=0 TO N-1 DO
     Texts.ReadCard(input,n);
     Texts.ReadString(input,dummy);
