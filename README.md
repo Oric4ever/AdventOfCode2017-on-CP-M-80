@@ -8,3 +8,8 @@ I tried to do all the challenges with Turbo Modula-2 for CP/M 80, an excellent d
 
 A word on the old computer targeted by these challenges : the Oric Phoenix is sort of a "chimera" (a computer that went to the prototyping stage but was never commercialized). It is powered by a 6.144 Mhz HD64180 micro-controller, which integrates a Z80-compatible core and some peripherals (Timers, UARTs...). It runs CP/M 2.2, and it has two floppy drives: for some challenges (like the dancers) it is really fun (and slow) to read the Day's input from a file on floppy... I might point to some videos for some of the challenges, showing this CP/M computer in action...
 
+From my point of view, here are the most interesting challenges :
+- day #6 : determining the periodicity of the cycle and the start of the cycle without memorizing all the previous configurations...
+- day #13 : using the Chinese Remainders Theorem to greatly reduce the number of computations
+- day #16 : finding cycles to reduce the number of computations
+- day #18 : Modula-2 shines here with its integrated coroutines!
