@@ -13,3 +13,8 @@ From my point of view, here are the most interesting challenges :
 - day #13 : using the Chinese Remainders Theorem to greatly reduce the number of computations
 - day #16 : finding cycles to reduce the number of computations
 - day #18 : Modula-2 shines here with its integrated coroutines!
+
+Status : nearly finished, I have to :
+- fetch back Day #16 from the CP/M floppy disk, 
+- optimise day #13 with Chinese Remainders Theorem
+- do day #20 and day #21
