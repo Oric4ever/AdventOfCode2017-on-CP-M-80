@@ -1,4 +1,8 @@
 MODULE Day16;
+(*
+  Day #16: the dance is 48 KB, so it is read from floppy disk each time...
+  We have a billion dance to do, hopefully a cycle can be found :-)
+*)
 FROM Texts IMPORT TEXT, OpenText, CloseText, ReadChar, EOLN, ReadAgain;
 CONST N = 16;
       start = 'abcdefghijklmnop';
