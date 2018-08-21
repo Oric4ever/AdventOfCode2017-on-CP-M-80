@@ -13,8 +13,9 @@ From my point of view, here are the most interesting challenges :
 - day #13 : using the Chinese Remainders Theorem to greatly reduce the number of computations
 - day #16 : finding cycles to reduce the number of computations
 - day #18 : Modula-2 shines here with its integrated coroutines!
+- day #21 : had to calculate a lot of indirection tables in order to reduce both the ram consumption and execution time
 
-Status : nearly finished, I have to :
+Status : all days done, but I have to :
 - optimise day #13 with Chinese Remainders Theorem
-- finish day #21, my PC version required several megabytes of memory...
 - measure execution time of all programs
+- link one or two videos to show the Oric Phoenix in action..
