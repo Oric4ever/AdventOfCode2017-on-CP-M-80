@@ -23,5 +23,5 @@ Anyway, this is starting to be a long description, so as a conclusion, below is 
 
 Status : all days done, but I have to :
 - optimise day #13 with Chinese Remainders Theorem
-- measure execution time of all programs
+- if possible, further optimize days #5, #15, #16, #17, #20, #22, #24, #25 as they require more than 20 minutes of execution time on my system.
 - link one or two videos to show the Oric Phoenix in action..
